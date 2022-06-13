@@ -1,4 +1,11 @@
-import { defineCustomElement } from "vue"
-import MyFirstCustomElement from "./elements/MyFirstCustomElement.ce.vue"
+import { defineCustomElement } from "./defineCustomElementWithStyles"
+import App from "./App.ce.vue"
+import store from "./store"
+import router from "./router"
 
-customElements.define("first-element", defineCustomElement(MyFirstCustomElement))
+customElements.define(
+  "app-test",
+  defineCustomElement(App, {
+    plugins: [store, router]
+  })
+)

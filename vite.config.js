@@ -4,27 +4,25 @@ import vue from "@vitejs/plugin-vue"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          // treat all tags with a dash as custom elements
-          isCustomElement: tag => tag.includes("-")
-        }
-      }
-    })
-  ],
+  server: {
+    open: "/index-local.html"
+  },
+  plugins: [vue()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "/src")
     }
   },
   build: {
-    lib: {
-      entry: "./src/main.ce.js",
-      name: "CustomElements",
-      formats: ["umd"],
-      fileName: format => `custom-elements.${format}.js`
+    rollupOptions: {
+      input: {
+        index: path.resolve(__dirname, "index.html")
+      },
+      output: {
+        assetFileNames: `assets/[name].[ext]`, // 除了js外的其他檔案(CSS/ttf)
+        entryFileNames: `assets/[name].js`, // index.js
+        chunkFileNames: `assets/[name].js` // 其他js
+      }
     }
   }
 })

@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <h1>APP</h1>
-    <first-element bg="red" path="https://codepen.io/chriscoyier/pen/VqKvZr.css"></first-element>
+    <nav>
+      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
+      <router-link to="/localstorage">LocalStorage</router-link>
+    </nav>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 

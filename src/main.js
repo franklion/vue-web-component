@@ -1,7 +1,9 @@
-import { createApp, defineCustomElement } from "vue"
-import App from "./App.vue"
-
-import {} from "./main.ce"
+import { createApp } from "vue"
+import App from "./App.ce.vue"
+import store from "./store"
+import router from "./router"
 
 const app = createApp(App)
-app.mount("#app")
+app.use(store)
+app.use(router)
+app.mount("#app-root")
