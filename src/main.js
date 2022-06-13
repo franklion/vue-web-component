@@ -1,11 +1,9 @@
-import { defineCustomElement } from "./defineCustomElementWithStyles"
+import { createApp } from "vue"
 import App from "./App.ce.vue"
 import store from "./store"
 import router from "./router"
 
-customElements.define(
-  "app-root",
-  defineCustomElement(App, {
-    plugins: [store, router]
-  })
-)
+const app = createApp(App)
+app.use(store)
+app.use(router)
+app.mount("#app-root")
