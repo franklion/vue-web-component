@@ -11,6 +11,10 @@ export default createRouter({
     {
       path: "/about",
       component: () => import("./views/About.ce.vue")
+    },
+    {
+      path: "/localstorage",
+      component: () => import("./views/LocalStorage.ce.vue")
     }
   ]
 })
