@@ -1,0 +1,22 @@
+{
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/utils/*": ["src/utils/*"],
+      "@/components/*": ["src/components/*"],
+      "@/composables/*": ["src/composables/*"],
+      "@/store/*": ["src/store/*"],
+      "@/views/*": ["src/views/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/constants/*": ["src/constants/*"],
+      "@/themes/*": ["src/themes/*"],
+      "@/plugins/*": ["src/plugins/*"],
+      "@/tests/*": ["src/tests/*"]
+    }
+  },
+  "vueCompilerOptions": {
+    "experimentalDisableTemplateSupport": true,
+    "experimentalShamefullySupportOptionsApi": true
+  }
+}
