@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     open: "/index-local.html"
   },
+  preview: {
+    open: "/index.html"
+  },
   plugins: [vue()],
   resolve: {
     alias: {
