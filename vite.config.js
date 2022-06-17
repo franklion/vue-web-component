@@ -17,14 +17,14 @@ export default defineConfig({
     }
   },
   build: {
+    lib: {
+      entry: "./src/main.ce.js",
+      name: "SaApp",
+      fileName: format => `sa/assets/sa.${format}.js`
+    },
     rollupOptions: {
-      input: {
-        index: path.resolve(__dirname, "index.html")
-      },
       output: {
-        assetFileNames: `assets/[name].[ext]`, // 除了js外的其他檔案(CSS/ttf)
-        entryFileNames: `assets/[name].js`, // index.js
-        chunkFileNames: `assets/[name].js` // 其他js
+        inlineDynamicImports: true
       }
     }
   }
