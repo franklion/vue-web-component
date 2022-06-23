@@ -1,5 +1,5 @@
 <template>
-  <h2>About</h2>
+  <h2>About :)</h2>
   <pre>counter: {{ $store.state.counter }}</pre>
   <button @click="$store.dispatch('increment')">+</button>
 </template>

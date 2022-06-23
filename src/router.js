@@ -1,20 +1,19 @@
-import { createRouter, createMemoryHistory } from "vue-router"
-import Home from "./views/Home.ce.vue"
+import { createRouter, createWebHistory } from "vue-router"
 
 export default createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes: [
     {
-      path: "/",
-      component: Home
+      path: "/vue",
+      component: () => import("./views/Home.vue")
     },
     {
-      path: "/about",
-      component: () => import("./views/About.ce.vue")
+      path: "/vue/about",
+      component: () => import("./views/About.vue")
     },
     {
-      path: "/localstorage",
-      component: () => import("./views/LocalStorage.ce.vue")
+      path: "/vue/localstorage",
+      component: () => import("./views/LocalStorage.vue")
     }
   ]
 })

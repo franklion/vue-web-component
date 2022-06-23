@@ -1,30 +1,36 @@
 import { defineConfig } from "vite"
 import path from "path"
 import vue from "@vitejs/plugin-vue"
+import federation from "@originjs/vite-plugin-federation"
 
-// https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    open: "/index-local.html"
-  },
-  preview: {
     open: "/index.html"
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    federation({
+      name: "app2",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./web-components": "./src/main.js"
+      }
+    })
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "/src")
     }
   },
   build: {
-    lib: {
-      entry: "./src/main.ce.js",
-      name: "SaApp",
-      fileName: format => `sa/assets/sa.${format}.js`
-    },
+    polyfillModulePreload: true,
+    assetsInlineLimit: 40960,
+    target: "esnext",
+    minify: false,
+    cssCodeSplit: false,
     rollupOptions: {
       output: {
-        inlineDynamicImports: true
+        minifyInternalExports: false
       }
     }
   }
